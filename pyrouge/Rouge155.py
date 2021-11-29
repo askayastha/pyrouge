@@ -218,7 +218,8 @@ class Rouge155(object):
         Returns: The converted text as string.
 
         """
-        sentences = text.split("\n")
+        #sentences = text.split("\n")
+        sentences = text.split("<q>")
         sent_elems = [
             "<a name=\"{i}\">[{i}]</a> <a href=\"#{i}\" id={i}>"
             "{text}</a>".format(i=i, text=sent)
@@ -520,12 +521,13 @@ class Rouge155(object):
             options = [
                 '-e', self._data_dir,
                 '-c', 95,
-                '-2',
-                '-1',
-                '-U',
+                #'-2',
+                #'-1',
+                #'-U',
+                '-m',
                 '-r', 1000,
-                '-n', 4,
-                '-w', 1.2,
+                '-n', 2,
+                #'-w', 1.2,
                 '-a',
                 ]
             options = list(map(str, options))
